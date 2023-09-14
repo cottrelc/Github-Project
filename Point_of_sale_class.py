@@ -11,8 +11,19 @@ class CarsonsWaterbottles:
     def __init__(self):
         pass
         
+    def get_number_water(self):
+        if self._number_of_water > 0:
+            return self._number_of_water
+        else:
+            return "You must order at least one water bottle"
+
+
+    def get_total_sale(self):
+        return self._total_sale
+
+
     def calculate(self, number_of_water):
         # TODO: Calculate cost of the water purchased
-        self.number_of_water = number_of_water
-        self.total_sale = self.number_of_water * WATERBOTTLE_COST
+        self._number_of_water = number_of_water
+        self._total_sale = self._number_of_water * WATERBOTTLE_COST
 

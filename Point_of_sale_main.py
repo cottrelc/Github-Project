@@ -13,8 +13,8 @@ def get_input():
         return number_of_water
 def display():
         # TODO: Display transaction for customer
-        number_of_water = carsons_water.number_of_water
-        total_sale = carsons_water.total_sale
+        number_of_water = carsons_water.get_number_water()
+        total_sale = carsons_water.get_total_sale()
         print(f"Number of Water Bottles: {number_of_water}")
         print(f"Your Water Bottles were: ${total_sale:,.2f}")
 carsons_water = bottle.CarsonsWaterbottles()
