@@ -8,16 +8,28 @@ import Point_of_sale_class as bottle
 
 
 #Cost of water for the customer
-def get_input():
-        number_of_water = int(input("Enter number of water bottles: "))
-        return number_of_water
-def display():
-        # TODO: Display transaction for customer
-        number_of_water = carsons_water.get_number_water()
-        total_sale = carsons_water.get_total_sale()
-        print(f"Number of Water Bottles: {number_of_water}")
-        print(f"Your Water Bottles were: ${total_sale:,.2f}")
+def start_ordering():
+        while True:
+
+                print(carsons_water.display_menu())
+                choice = input(
+                        "Enter an item to order (q to quit): ").lower()
+                
+                if choice == 'q':
+                        break
+
+                quantity = int(input("Enter the quantity: "))
+
+                cart_item = carsons_water.add_to_cart(choice, quantity)
+
+                print(cart_item)
+                
+def generate_receipt():
+                carsons_water.calculate_total()
+                print("\nreceipt: ")
+
+                print(f"Total: ${carsons_water.total:.2f}")
+                print("Thank you for hydrating yourself.")
 carsons_water = bottle.CarsonsWaterbottles()
-number_of_water = get_input()
-carsons_water.calculate(number_of_water)
-display()
+start_ordering()
+generate_receipt()
